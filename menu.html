@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Food - Меню</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Шапка с логотипом, навигацией и корзиной -->
+        <header class="container">
+            <span class="logo">THAIFOOD</span>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главное</a></li>
+                    <li><a href="menu.html">Меню</a></li>
+                    <li><a href="Onas.html">Тайланд,заведения</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                    <li class="btn"><a href="Reg.html">Регистрация</a></li>
+                    <li class="cart-icon-nav" id="cartIcon">
+                        <a href="#">корзина <span class="cart-count" id="cartCount">0</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+    <main class="container">        
+        <section class="menu-section">
+            <h2>Наше меню</h2>
+            <div class="filter-buttons" id="filterButtons">
+                
+            </div>
+            
+            <div class="menu-grid" id="menuGrid">
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- корзина -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h2>Ваша корзина</h2>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Товары будут добавлены JavaScript -->
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Всего:</span>
+                    <span id="cartTotal" class="total-price">0 ₽</span>
+                </div>
+            </div>
+
+            <!-- Форма оформления заказа -->
+            <div class="checkout-form" id="checkoutForm">
+                <h3>Оформление заказа</h3>
+                <input type="text" id="clientName" placeholder="Ваше имя" required>
+                <input type="tel" id="clientPhone" placeholder="Номер телефона" required>
+                <input type="text" id="clientAddress" placeholder="Адрес доставки" required>
+                <textarea id="clientComment" placeholder="Комментарий (опционально)" rows="3"></textarea>
+                <button class="btn-order" id="submitOrder">Оформить заказ</button>
+                <button class="btn-cancel" id="cancelOrder">Отмена</button>
+            </div>
+
+            <!-- Сообщение об успешном заказе -->
+            <div class="success-message" id="successMessage" style="display: none;">
+                <h3>Заказ успешно принят!</h3>
+                <p id="orderDetails"></p>
+                <button class="btn-continue" id="continueShop">Продолжить покупки</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="menu.js" defer></script>
+</body>
+</html>

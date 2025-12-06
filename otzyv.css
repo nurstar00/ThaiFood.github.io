@@ -1,0 +1,83 @@
+:root{
+	--bg: #fffaf6;
+	--card: #ffffff;
+	--accent: #ee6e3a;
+	--muted: #6b6b6b;
+	--shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+body{
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	margin:0;
+	background:var(--bg);
+	color:#222;
+}
+.site-header{
+	background: linear-gradient(90deg,#f7f0ea,#fff);
+	position:relative;
+	overflow:hidden;
+	padding:24px 16px;
+	text-align:center;
+	border-bottom:1px solid #eee;
+}
+
+.header-overlay{
+    position:absolute;inset:0;pointer-events:none;z-index:0;
+    background:linear-gradient(120deg, rgba(238,110,58,0.06), rgba(255,200,120,0.04), transparent);
+    transform:translateX(-8%);
+}
+
+.anim-ornaments{position:absolute;left:8px;top:8px;right:8px;height:0;pointer-events:none;z-index:2}
+.anim-ornaments .ornament{position:absolute;font-size:28px;opacity:0.95;transform-origin:center;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.08))}
+.anim-ornaments .ornament:nth-child(1){left:6%}
+.anim-ornaments .ornament:nth-child(2){left:50%}
+.anim-ornaments .ornament:nth-child(3){left:85%}
+.container{
+	max-width:900px;
+	margin:28px auto;
+	padding:0 16px 48px;
+}
+.review-form-section, .reviews-list-section{
+	background:var(--card);
+	padding:16px;
+	border-radius:8px;
+	box-shadow:var(--shadow);
+	margin-bottom:18px;
+}
+.review-form label{display:block;margin-top:12px;font-weight:600;color:var(--muted)}
+.review-form input[type="text"], .review-form select, .review-form textarea{
+	width:100%;
+	padding:10px 12px;
+	border:1px solid #e6e6e6;
+	border-radius:6px;
+	margin-top:6px;
+	box-sizing:border-box;
+	font-size:14px;
+}
+.form-actions{display:flex;gap:10px;margin-top:14px}
+.form-actions .secondary{
+	background:transparent;border:1px solid #ccc;color:#333;padding:10px 14px;border-radius:6px;cursor:pointer
+}
+.form-actions button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer}
+
+.reviews{display:flex;flex-direction:column;gap:12px}
+.review-card{opacity:1;transform:none}
+.review-card.hidden{opacity:0;transform:translateY(12px) scale(.995)}
+.review-card.in-view{opacity:1;transform:none}
+.no-reviews{color:var(--muted);padding:10px}
+.review-card{padding:12px;border-radius:8px;border:1px solid #f0e6e0;background:#fff}
+.review-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.review-name{font-size:15px}
+.review-rating{color:var(--accent);font-weight:700}
+.review-body{margin:0 0 8px;font-size:14px}
+.review-footer{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.delete-btn{background:transparent;border:1px solid #ffdddd;color:#b00;padding:6px 8px;border-radius:6px;cursor:pointer}
+
+button[data-anim="true"]{position:relative;overflow:hidden}
+
+
+@media (min-width:700px){
+	.review-form-section{display:block}
+}
+
+.site-footer{padding:18px;text-align:center;color:var(--muted);font-size:14px}
+

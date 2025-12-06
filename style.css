@@ -1,0 +1,137 @@
+body {
+    margin: 0%; /* убирat отступы по умолчанию */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    cursor: url('cursor.png'),auto;
+}
+
+
+
+.wrapper {
+    background: #D6C638;
+    background: linear-gradient(180deg, rgba(214, 198, 56, 0.53) 29%, rgba(255, 211, 51, 0.12) 60%, rgba(119, 233, 140, 0.56) 97%);
+    width: 100%;
+}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+}
+header .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #a70101;
+}
+header nav  {
+    width: 50%;  
+  display: inline-block;}
+
+header nav ul li a {
+    color: #685423;
+}
+
+
+header nav ul li:not(.active):not(.btn) a:hover {
+    border-bottom: 3px solid #a7010193;
+} /* мышка апарган кезде под текст линия */
+
+
+header nav ul li.btn a { /* кноpka regis */
+    background: hsla(71, 40%, 66%, 0.627);
+    padding: 7px 11px; 
+    border-radius: 5px;
+    transition: all 500ms ease; /* анимация плавно*/
+}
+header nav ul li.btn a:hover {/* кноpka regis мышка апарган кезде */
+    background: #ebeeb4;
+}
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+  
+
+.hero {
+   padding-bottom: 100px; /* отступ астыга */
+   position: relative;
+}
+.hero--info { /* текстовая часть */
+   width: 530px;
+   padding-top: 70px;
+}
+.hero--info h1 {
+    font-weight: 600;
+    font-size: 25px;
+    color: #4d0303;
+}
+.hero--info p {
+    margin: 30px 0 40px 0;
+    font-size: 16px;
+    line-height: 17px;
+    color: #4d0303;
+}
+.hero--info .btnn { /* кнопка заказать*/
+    background: #a70101;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+.hero--info .btnn:hover { 
+    cursor: pointer;
+    transform: scale(1.1);
+
+}
+.hero img{
+   width:700px;
+}
+.vapour {
+    position: relative;
+    display: flex;
+    z-index: 1;
+    padding: 0 20px;
+}
+.vapour span {
+    z-index: 2;
+    position: relative;
+    bottom: -250px;
+    display: block;
+    margin: 0 2px 50px;
+    min-width: 8px;
+    height: 300px;
+    background: #fff;
+    border-radius: 50%;
+    animation: animate 5s linear infinite;
+    opacity: 0;
+    filter:blur(8px);
+    animation-delay: calc(var(--i)*-0.5s);
+}
+@keyframes animate {
+    0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    50%{
+        transform: translateY(-150px) scaleX(5);
+    }
+    95%{
+        opacity: 0;
+    }
+}
