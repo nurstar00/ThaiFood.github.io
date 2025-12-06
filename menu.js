@@ -1,13 +1,13 @@
 // = фильтр =
 const menuItems = [
-    { id: 1, name: 'Пад Тай с креветками', price: 2350, description: 'Лапша с креветками и овощами', image: 'menu/pad-thai-shrimp.jpg', category: 'Морепродукты' },
-    { id: 2, name: 'Жареный лагман с говядиной', price: 2930, description: 'Острое блюдо из лагмана с говядиной', image: 'menu/lagman-beef.jpg', category: 'Домашняя еда' },
-    { id: 3, name: 'Креветки в зеленом кари', price: 2830, description: 'Острые креветки в зеленом соусе', image: 'menu/shrimp-green-curry.jpg', category: 'Морепродукты' },
-    { id: 4, name: 'Морепродукты в зелёном кари', price: 2020, description: 'Морепродукты в остром зеленом соусе', image: 'menu/seafood-green-curry.jpg', category: 'Морепродукты' },
-    { id: 5, name: 'Морепродукты в кисло-сладком соусе', price: 3520, description: 'Морепродукты в кисло-сладком соусе', image: 'menu/seafood-sweet-sour.jpg', category: 'Морепродукты' },
-    { id: 6, name: 'Рыба в кисло-сладком соусе', price: 3350, description: 'Рыба в ароматном кисло-сладком соусе', image: 'menu/fish-sweet-sour.jpg', category: 'Морепродукты' },
-    { id: 7, name: 'Говядина в кисло-сладком соусе', price: 2380, description: 'Говядина с овощами в кисло-сладком соусе', image: 'menu/beef-sweet-sour.jpg', category: 'Домашняя еда' },
-    { id: 8, name: 'Салат со стеком, лапша с крев.', price: 1520, description: 'Салат со стеком и лапшой с креветками', image: 'menu/salad-steak-noodles.jpg', category: 'Острая' }
+    { id: 1, name: 'Пад Тай с креветками', price: 2350, description: 'Лапша с креветками и овощами', image: '/ThaiFood.github.io/menu/pad-thai-shrimp.jpg', category: 'Морепродукты' },
+    { id: 2, name: 'Жареный лагман с говядиной', price: 2930, description: 'Острое блюдо из лагмана с говядиной', image: '/ThaiFood.github.io/menu/lagman-beef.jpg', category: 'Домашняя еда' },
+    { id: 3, name: 'Креветки в зеленом кари', price: 2830, description: 'Острые креветки в зеленом соусе', image: '/ThaiFood.github.io/menu/shrimp-green-curry.jpg', category: 'Морепродукты' },
+    { id: 4, name: 'Морепродукты в зелёном кари', price: 2020, description: 'Морепродукты в остром зеленом соусе', image: '/ThaiFood.github.io/menu/seafood-green-curry.jpg', category: 'Морепродукты' },
+    { id: 5, name: 'Морепродукты в кисло-сладком соусе', price: 3520, description: 'Морепродукты в кисло-сладком соусе', image: '/ThaiFood.github.io/menu/seafood-sweet-sour.jpg', category: 'Морепродукты' },
+    { id: 6, name: 'Рыба в кисло-сладком соусе', price: 3350, description: 'Рыба в ароматном кисло-сладком соусе', image: '/ThaiFood.github.io/menu/fish-sweet-sour.jpg', category: 'Морепродукты' },
+    { id: 7, name: 'Говядина в кисло-сладком соусе', price: 2380, description: 'Говядина с овощами в кисло-сладком соусе', image: '/ThaiFood.github.io/menu/beef-sweet-sour.jpg', category: 'Домашняя еда' },
+    { id: 8, name: 'Салат со стеком, лапша с крев.', price: 1520, description: 'Салат со стеком и лапшой с креветками', image: '/ThaiFood.github.io/menu/salad-steak-noodles.jpg', category: 'Острая' }
 ];
 
 
