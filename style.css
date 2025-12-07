@@ -5,13 +5,13 @@ body {
     font-size: 16px;
     color: #000000;
     cursor: url('cursor.png'),auto;
+    background: #ffffff;
 }
 
 
 
 .wrapper {
-    background: #D6C638;
-    background: linear-gradient(180deg, rgba(214, 198, 56, 0.53) 29%, rgba(255, 211, 51, 0.12) 60%, rgba(119, 233, 140, 0.56) 97%);
+    background: #ffffff;
     width: 100%;
 }
 .container {
@@ -134,4 +134,55 @@ header nav ul {
     95%{
         opacity: 0;
     }
+}
+
+/* Unified header styles to be applied across pages */
+.site-header { display:flex; justify-content:space-between; align-items:center; padding:24px 0; background:#f0f0f0; border-radius:8px; }
+.site-header .logo { font-weight:700; font-size:22px; color:#a70101; text-decoration:none }
+.site-header .main-nav ul { display:flex; gap:18px; list-style:none; margin:0; padding:0 }
+.site-header .main-nav ul li a { color:#685423; text-decoration:none }
+.site-header .main-nav ul li.btn a { background: hsla(71, 40%, 66%, 0.63); padding:7px 11px; border-radius:6px }
+.site-header .main-nav ul li.cart-icon-nav a { color:#333 }
+
+/* Account dropdown */
+.account-nav { position: relative }
+.account-nav .account-link { display:flex; align-items:center; gap:8px; color:#685423; text-decoration:none }
+.account-nav .icon-account { width:18px; height:18px; fill:#685423 }
+.account-dropdown { position:absolute; right:0; top:calc(100% + 6px); background:#fff; border:1px solid #eee; box-shadow:0 6px 18px rgba(0,0,0,0.06); border-radius:8px; min-width:180px; display:none; flex-direction:column; padding:8px 0; z-index:40 }
+.account-dropdown a { padding:8px 12px; color:#333; text-decoration:none; font-size:14px }
+.account-dropdown a:hover { background:#f6f6f6 }
+.account-nav.open .account-dropdown { display:flex }
+
+/* small tweaks for header links */
+.main-nav a.active { font-weight:700 }
+
+/* New header override: centered nav, responsive tweaks */
+.site-header { display:flex; align-items:center; gap:20px; padding:16px 0; background:#f7f7f8; border-radius:8px }
+.site-header .logo { font-weight:700; font-size:22px; color:#a70101; text-decoration:none; margin-right:16px }
+.site-header .main-nav { flex:1 1 auto; display:flex; justify-content:center }
+.site-header .main-nav ul { display:flex; gap:18px; list-style:none; margin:0; padding:0; align-items:center }
+.site-header .main-nav ul li a { color:#685423; text-decoration:none; padding:6px 4px }
+.site-header .main-nav ul li.btn a { background:hsla(71,40%,66%,0.63); padding:7px 11px; border-radius:6px }
+.site-header .cart-icon-nav a { color:#333 }
+.account-nav { position:relative; margin-left:12px }
+.account-nav .account-link { display:inline-flex; align-items:center; gap:8px; color:#685423; text-decoration:none }
+.account-dropdown { position:absolute; right:0; top:calc(100% + 6px); background:#fff; border:1px solid #eee; box-shadow:0 6px 18px rgba(0,0,0,0.06); border-radius:8px; min-width:160px; display:none; flex-direction:column; padding:6px 0; z-index:40 }
+.account-dropdown a { padding:8px 12px; color:#333; text-decoration:none; font-size:14px }
+.account-dropdown a:hover { background:#f6f6f6 }
+.account-nav.open .account-dropdown { display:flex }
+
+@media (max-width:800px) {
+    .site-header { padding:12px 0 }
+    .site-header .main-nav { display:none }
+    .site-header .logo { margin-right:0 }
+}
+
+/* Hamburger toggle button */
+.nav-toggle { display: none; background: transparent; border: none; font-size:20px; cursor:pointer }
+.nav-toggle .bar { display:block; width:22px; height:2px; background:#685423; margin:4px 0; border-radius:2px }
+
+@media (max-width:800px) {
+    .nav-toggle { display: inline-flex; align-items:center; gap:6px }
+    .site-header .main-nav.open { display: block; position: absolute; left: 0; right: 0; top: calc(100% + 8px); background: #fff; padding: 12px 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-radius: 8px }
+    .site-header .main-nav.open ul { flex-direction: column; gap: 8px }
 }

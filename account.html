@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Личный кабинет — Thai Food</title>
+  <link rel="stylesheet" href="account.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="site-header container">
+            <a class="logo" href="index.html">THAIFOOD</a>
+            <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Главное</a></li>
+                    <li><a href="menu.html">Меню</a></li>
+                    <li><a href="Onas.html">Тайланд, заведения</a></li>
+                    <li><a href="otzyv.html">Отзывы</a></li>
+                    <li class="btn"><a href="Reg.html">Регистрация</a></li>
+                </ul>
+            </nav>
+            <div class="account-nav">
+                <a href="account.html" class="account-link active" aria-haspopup="true" aria-expanded="true">Личный кабинет</a>
+                <div class="account-dropdown" aria-hidden="true">
+                    <a href="#" id="logoutBtn">Выйти</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="account-container">
+            <h1>Личный кабинет</h1>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="orders">Текущие заказы</button>
+                <button class="tab-btn" data-tab="history">История заказов</button>
+                <button class="tab-btn" data-tab="favorites">Избранное</button>
+            </div>
+
+            <section id="orders" class="tab active">
+                <div id="orders-list" class="list"></div>
+                <div id="no-orders" class="empty">Нет текущих заказов.</div>
+            </section>
+
+            <section id="history" class="tab">
+                <div id="history-list" class="list"></div>
+                <div id="no-history" class="empty">История заказов пуста.</div>
+            </section>
+
+            <section id="favorites" class="tab">
+                <div id="favorites-list" class="list"></div>
+                <div id="no-favorites" class="empty">Список избранного пуст.</div>
+            </section>
+        </main>
+    </div>
+
+  <script src="header.js" defer></script>
+  <script src="account.js"></script>
+</body>
+</html>

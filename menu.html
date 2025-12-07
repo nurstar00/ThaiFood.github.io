@@ -5,24 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thai Food - Меню</title>
     <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="wrapper">
-        <!-- Шапка с логотипом, навигацией и корзиной -->
-        <header class="container">
-            <span class="logo">THAIFOOD</span>
-            <nav>
+        <!-- Unified header -->
+        <header class="site-header container">
+            <a class="logo" href="index.html">THAIFOOD</a>
+            <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Главное</a></li>
                     <li><a href="menu.html">Меню</a></li>
-                    <li><a href="Onas.html">Тайланд,заведения</a></li>
-                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="Onas.html">Тайланд, заведения</a></li>
+                    <li><a href="otzyv.html">Отзывы</a></li>
                     <li class="btn"><a href="Reg.html">Регистрация</a></li>
-                    <li class="cart-icon-nav" id="cartIcon">
-                        <a href="#">корзина <span class="cart-count" id="cartCount">0</span></a>
-                    </li>
+                    <li class="cart-icon-nav" id="cartIcon"><a href="#">корзина <span class="cart-count" id="cartCount">0</span></a></li>
                 </ul>
             </nav>
+            <div class="account-nav">
+                <a href="account.html" class="account-link" aria-haspopup="true" aria-expanded="false">Личный кабинет</a>
+                <div class="account-dropdown" aria-hidden="true">
+                    <a href="#" id="logoutBtn">Выйти</a>
+                </div>
+            </div>
         </header>
 
     <main class="container">        
@@ -75,6 +85,7 @@
         </div>
     </div>
 
+    <script src="header.js" defer></script>
     <script src="menu.js" defer></script>
 </body>
 </html>

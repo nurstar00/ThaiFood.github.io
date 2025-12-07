@@ -1,17 +1,17 @@
 // = фильтр =
 const menuItems = [
-    { id: 1, name: 'Пад Тай с креветками', price: 2350, description: 'Лапша с креветками и овощами', image: '/ThaiFood.github.io/menu/pad-thai-shrimp.jpg', category: 'Морепродукты' },
-    { id: 2, name: 'Жареный лагман с говядиной', price: 2930, description: 'Острое блюдо из лагмана с говядиной', image: '/ThaiFood.github.io/menu/lagman-beef.jpg', category: 'Домашняя еда' },
-    { id: 3, name: 'Креветки в зеленом кари', price: 2830, description: 'Острые креветки в зеленом соусе', image: '/ThaiFood.github.io/menu/shrimp-green-curry.jpg', category: 'Морепродукты' },
-    { id: 4, name: 'Морепродукты в зелёном кари', price: 2020, description: 'Морепродукты в остром зеленом соусе', image: '/ThaiFood.github.io/menu/seafood-green-curry.jpg', category: 'Морепродукты' },
-    { id: 5, name: 'Морепродукты в кисло-сладком соусе', price: 3520, description: 'Морепродукты в кисло-сладком соусе', image: '/ThaiFood.github.io/menu/seafood-sweet-sour.jpg', category: 'Морепродукты' },
-    { id: 6, name: 'Рыба в кисло-сладком соусе', price: 3350, description: 'Рыба в ароматном кисло-сладком соусе', image: '/ThaiFood.github.io/menu/fish-sweet-sour.jpg', category: 'Морепродукты' },
-    { id: 7, name: 'Говядина в кисло-сладком соусе', price: 2380, description: 'Говядина с овощами в кисло-сладком соусе', image: '/ThaiFood.github.io/menu/beef-sweet-sour.jpg', category: 'Домашняя еда' },
-    { id: 8, name: 'Салат со стеком, лапша с крев.', price: 1520, description: 'Салат со стеком и лапшой с креветками', image: '/ThaiFood.github.io/menu/salad-steak-noodles.jpg', category: 'Острая' }
+    { id: 1, name: 'ПАД ТАЙ С КРЕВЕТКАМИ', price: 2930, description: 'Жареная рисовая лапша. В составе: креветки, соя проросшая, тофу, яйцо, жаренный арахис и специи.', image: 'menu/Пад Тай с креветками.jpg', category: 'Креветки' },
+    { id: 2, name: 'ЖАРЕНЫЙ ЛАГМАН С ГОВЯДИНОЙ', price: 2930, description: 'Острое блюдо из лагмана с говядиной', image: 'menu/говядина в зеленом карри 1.jpg', category: 'Говядина' },
+    { id: 3, name: 'TOM YAM С КРЕВЕТКАМИ', price: 3480, description: 'Знаменитый тайский суп на основе куриного бульона с добавлением острой пасты TomYam. Состав: королевские креветки, шампиньоны, лемонграсс, галангал, каффиралайм, кинза, молоко. Подается с рисом.', image: 'menu/Том Ям с Креветками.jpg', category: 'Креветки' },
+    { id: 4, name: 'TOM YAM С МОРЕПРОДУКТАМИ', price: 3740, description: 'Знаменитый тайский суп с кальмаром, осьминогом, королевской мидией и креветками.', image: 'menu/Том Ям с Морепродуктами.jpg', category: 'Морепродукты' },
+    { id: 5, name: 'TOM KHA С КРЕВЕТКАМИ', price: 3680, description: 'Нежный суп на курином бульоне и кокосовом молоке с креветками и тайскими травами.', image: 'menu/Том Кна С Креветками.jpeg', category: 'Креветки' },
+    { id: 6, name: 'TOM KHA С КУРИЦЕЙ', price: 3460, description: 'Нежный суп на курином бульоне и кокосовом молоке с куриным филе и специями.', image: 'menu/Том Кна с Курицей.jpg', category: 'Курица' },
+    { id: 7, name: 'TOM YAM С КУРИЦЕЙ', price: 3170, description: 'Знаменитый острый суп TomYam с куриным филе и тайскими травами.', image: 'menu/Тм Ям с Курицей.jpeg', category: 'Курица' },
+    { id: 8, name: 'ГОВЯДИНА В ЗЕЛЕНОМ КАРРИ', price: 3290, description: 'Говядина, стручковая фасоль в соусе зеленый карри с кокосовым молоком', image: 'menu/говядина в зеленом карри 1.jpg', category: 'Говядина' }
 ];
 
 
-const categories = ['Все', 'Домашняя еда', 'Морепродукты', 'Острая'];
+const categories = ['Все', 'Креветки', 'Морепродукты', 'Говядина', 'Курица'];
 let activeCategory = 'Все';
 
 
@@ -118,10 +118,10 @@ function filterByCategory(category) {
 // Рендер меню блюд
 function renderMenu() {
     menuGrid.innerHTML = '';
-    
-    const filteredItems = activeCategory === 'Все' 
-        ? menuItems 
-        : menuItems.filter(item => item.category === activeCategory);
+    // Фильтрация: если выбрано "Все" — показать все, иначе проверить по ключевым словам
+    const filteredItems = activeCategory === 'Все'
+        ? menuItems
+        : menuItems.filter(item => matchesCategory(item, activeCategory));
     
     if (filteredItems.length === 0) {
         menuGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #999;">Блюд не найдено</p>';
@@ -147,6 +147,23 @@ function renderMenu() {
         const addBtn = itemEl.querySelector('.btn-add');
         addBtn.addEventListener('click', () => addToCart(item.id));
     });
+}
+
+// Проверка соответствия элемента выбранной категории по имени/описанию/категории
+function matchesCategory(item, category) {
+    const text = (item.name + ' ' + item.description + ' ' + (item.category || '')).toLowerCase();
+    switch (category) {
+        case 'Креветки':
+            return /кревет|креветки|shrimp/.test(text);
+        case 'Морепродукты':
+            return /морепродукт|море|seafood|кальмар|осьминог|мидия|рыба/.test(text);
+        case 'Говядина':
+            return /говядин|beef|стейк/.test(text);
+        case 'Курица':
+            return /куриц|chicken|куриное|филе/.test(text);
+        default:
+            return item.category === category;
+    }
 }
 
 // Добавить в корзину

@@ -1,0 +1,22 @@
+/* Simple styles for personal account */
+body { font-family: Arial, Helvetica, sans-serif; margin: 0; color: #222; }
+.site-header { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; background:#fff; border-bottom:1px solid #eee; }
+.logo { font-weight:700; color:#333; text-decoration:none; font-size:20px }
+.main-nav a { margin-left:12px; color:#333; text-decoration:none }
+.main-nav a.active { font-weight:700 }
+.account-container { max-width:980px; margin:28px auto; padding:0 16px }
+.tabs { display:flex; gap:8px; margin-bottom:18px }
+.tab-btn { padding:8px 12px; border:1px solid #ddd; background:#fafafa; cursor:pointer }
+.tab-btn.active { background:#fff; border-bottom:2px solid #2196f3; font-weight:600 }
+.tab { display:none }
+.tab.active { display:block }
+.list { display:flex; flex-direction:column; gap:12px }
+.order-card, .fav-card { border:1px solid #eee; padding:12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center }
+.order-info { max-width:70% }
+.order-meta { color:#666; font-size:13px }
+.order-actions button { margin-left:8px }
+.progress { height:8px; background:#f1f1f1; border-radius:6px; overflow:hidden; margin-top:8px }
+.progress > i { display:block; height:100%; background:linear-gradient(90deg,#4caf50,#8bc34a) }
+.empty { color:#666; padding:12px }
+
+@media (max-width:600px){ .order-info { max-width:60% } }

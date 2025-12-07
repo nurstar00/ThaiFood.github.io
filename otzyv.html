@@ -8,53 +8,72 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<header class="site-header">
-		<div class="anim-ornaments" aria-hidden="true">
-			<span class="ornament">🍜</span>
-			<span class="ornament">🥢</span>
-			<span class="ornament">🌶️</span>
-		</div>
-		<div class="header-overlay" aria-hidden="true"></div>
-		<h1>Отзывы клиентов</h1>
-		<p>Поделитесь впечатлением о заказе — это поможет нам стать лучше.</p>
-	</header>
+    <div class="wrapper">
+        <header class="site-header container">
+            <a class="logo" href="index.html">THAIFOOD</a>
+            <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Главное</a></li>
+                    <li><a href="menu.html">Меню</a></li>
+                    <li><a href="Onas.html">Тайланд, заведения</a></li>
+                    <li><a href="otzyv.html">Отзывы</a></li>
+                    <li class="btn"><a href="Reg.html">Регистрация</a></li>
+                </ul>
+            </nav>
+            <div class="account-nav">
+                <a href="account.html" class="account-link" aria-haspopup="true" aria-expanded="false">Личный кабинет</a>
+                <div class="account-dropdown" aria-hidden="true">
+                    <a href="#" id="logoutBtn">Выйти</a>
+                </div>
+            </div>
+        </header>
 
-	<main class="container">
-		<section class="review-form-section">
-			<h2>Оставить отзыв</h2>
-			<form id="reviewForm" class="review-form" novalidate>
-				<label for="name">Имя</label>
-				<input id="name" name="name" type="text" placeholder="Ваше имя" required>
+        <main class="container">
+            <section class="reviews-hero">
+                <h1>Отзывы клиентов</h1>
+                <p>Поделитесь впечатлением о заказе — это поможет нам стать лучше.</p>
+            <section class="review-form-section">
+                <h2>Оставить отзыв</h2>
+                <form id="reviewForm" class="review-form" novalidate>
+                    <label for="name">Имя</label>
+                    <input id="name" name="name" type="text" placeholder="Ваше имя" required>
 
-				<label for="rating">Оценка</label>
-				<select id="rating" name="rating" required>
-					<option value="">Выберите</option>
-					<option value="5">5 — Отлично</option>
-					<option value="4">4 — Очень хорошо</option>
-					<option value="3">3 — Нормально</option>
-					<option value="2">2 — Плохо</option>
-					<option value="1">1 — Ужасно</option>
-				</select>
+                    <label for="rating">Оценка</label>
+                    <select id="rating" name="rating" required>
+                        <option value="">Выберите</option>
+                        <option value="5">5 — Отлично</option>
+                        <option value="4">4 — Очень хорошо</option>
+                        <option value="3">3 — Нормально</option>
+                        <option value="2">2 — Плохо</option>
+                        <option value="1">1 — Ужасно</option>
+                    </select>
 
-				<label for="message">Комментарий</label>
-				<textarea id="message" name="message" rows="5" placeholder="Напишите ваш отзыв" required></textarea>
+                    <label for="message">Комментарий</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Напишите ваш отзыв" required></textarea>
 
-				<div class="form-actions">
-					<button type="submit" id="submitBtn" data-anim="true">Отправить отзыв</button>
-					<button type="button" id="clearBtn" class="secondary">Очистить</button>
-				</div>
-			</form>
-		</section>
+                    <div class="form-actions">
+                        <button type="submit" id="submitBtn" data-anim="true">Отправить отзыв</button>
+                        <button type="button" id="clearBtn" class="secondary">Очистить</button>
+                    </div>
+                </form>
+            </section>
 
-		<section class="reviews-list-section">
-			<h2>Последние отзывы</h2>
-			<div id="reviews" class="reviews"></div>
-		</section>
-	</main>
+            <section class="reviews-list-section">
+                <h2>Последние отзывы</h2>
+                <div id="reviews" class="reviews"></div>
+            </section>
+        </main>
+    </div>
 
 	
 
-	<script src="otzyv.js"></script>
+		<script src="header.js" defer></script>
+		<script src="otzyv.js"></script>
 </body>
 </html>
 
