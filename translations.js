@@ -215,7 +215,7 @@ const translations = {
 
     // О нас
     aboutUs: 'Мен',
-    ourLocations: 'Біздің орындарымыз',
+    ourLocations: 'Біздің орынымыз',
     clickMap: 'Маршрутты ашу үшін картадағы THAIFOOD6  басыңыз немесе төменде сілтемені пайдаланыңыз:',
     location: 'Орналасқандығы:',
     openOn2GIS: '2GIS ішінде ашу (Алматы)',
