@@ -22,27 +22,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!name) {
             msg.style.color = 'crimson';
-            msg.textContent = 'Пожалуйста, введите имя.';
+            msg.textContent = t('reg_validate_name');
             return;
         }
         if (!surname) {
             msg.style.color = 'crimson';
-            msg.textContent = 'Пожалуйста, введите фамилию.';
+            msg.textContent = t('reg_validate_surname');
             return;
         }
         if (!validatePhone(phone)) {
             msg.style.color = 'crimson';
-            msg.textContent = 'Пожалуйста, введите корректный телефон.';
+            msg.textContent = t('reg_validate_phone');
             return;
         }
         if (!validateEmail(email)) {
             msg.style.color = 'crimson';
-            msg.textContent = 'Пожалуйста, введите корректный email.';
+            msg.textContent = t('reg_validate_email');
             return;
         }
         if (!address) {
             msg.style.color = 'crimson';
-            msg.textContent = 'Пожалуйста, укажите адрес.';
+            msg.textContent = t('reg_validate_address');
             return;
         }
 
@@ -50,14 +50,14 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.disabled = true;
         btn.classList.add('loading');
         const origHTML = btn.innerHTML;
-        btn.innerHTML = '<span class="spinner" aria-hidden="true"></span>Отправка...';
+        btn.innerHTML = `<span class="spinner" aria-hidden="true"></span>${t('reg_sending')}`;
 
         setTimeout(() => {
             btn.disabled = false;
             btn.classList.remove('loading');
             btn.innerHTML = origHTML;
             msg.style.color = '#16a34a';
-            msg.textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.';
+            msg.textContent = t('reg_success');
             form.reset();
         }, 900);
     });

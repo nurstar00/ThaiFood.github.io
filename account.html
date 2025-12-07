@@ -18,48 +18,157 @@
             </button>
             <nav class="main-nav" aria-label="Main navigation">
                 <ul>
-                    <li><a href="index.html">Главное</a></li>
-                    <li><a href="menu.html">Меню</a></li>
-                    <li><a href="Onas.html">Тайланд, заведения</a></li>
-                    <li><a href="otzyv.html">Отзывы</a></li>
-                    <li class="btn"><a href="Reg.html">Регистрация</a></li>
+                    <li><a href="index.html" data-i18n="main">Главное</a></li>
+                    <li><a href="menu.html" data-i18n="menu">Меню</a></li>
+                    <li><a href="Onas.html" data-i18n="about">Тайланд, заведения</a></li>
+                    <li><a href="otzyv.html" data-i18n="reviews">Отзывы</a></li>
+                    <li class="btn"><a href="Reg.html" data-i18n="registration">Регистрация</a></li>
+                    <li class="btn"><a href="account.html" data-i18n="cabinet">Личный кабинет</a></li>
+                    <li class="cart-icon-nav" id="cartIcon"><a href="#"><span data-i18n="cart">корзина</span> <span class="cart-count" id="cartCount">0</span></a></li>
                 </ul>
             </nav>
             <div class="account-nav">
-                <a href="account.html" class="account-link active" aria-haspopup="true" aria-expanded="true">Личный кабинет</a>
-                <div class="account-dropdown" aria-hidden="true">
-                    <a href="#" id="logoutBtn">Выйти</a>
+                <a href="account.html" class="account-link" aria-haspopup="true" aria-expanded="false"></a>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="ru" onclick="setLanguage('ru')">РУ</button>
+                    <button class="lang-btn" data-lang="kk" onclick="setLanguage('kk')">ҚА</button>
                 </div>
             </div>
         </header>
 
         <main class="account-container">
-            <h1>Личный кабинет</h1>
+            <h1 data-i18n="cabinet">Личный кабинет</h1>
+
+            <!-- Информация о клиенте -->
+            <section class="profile-section">
+                <h2 data-i18n="myProfile">Мой профиль</h2>
+                <div class="profile-info">
+                    <p><strong data-i18n="fullName">ФИО:</strong> Иван Петров</p>
+                    <p><strong data-i18n="phone">Номер телефона:</strong> +7 (700) 123-45-67</p>
+                    <p><strong data-i18n="address">Адрес доставки:</strong> ул. Абая, 155, кв. 42, Алматы</p>
+                    <p><strong data-i18n="email">Email:</strong> ivan.petrov@example.com</p>
+                </div>
+            </section>
+
+            <hr>
 
             <div class="tabs">
-                <button class="tab-btn active" data-tab="orders">Текущие заказы</button>
-                <button class="tab-btn" data-tab="history">История заказов</button>
-                <button class="tab-btn" data-tab="favorites">Избранное</button>
+                <button class="tab-btn active" data-tab="orders" data-i18n="currentOrders">Текущие заказы</button>
+                <button class="tab-btn" data-tab="history" data-i18n="orderHistory">История заказов</button>
+                <button class="tab-btn" data-tab="favorites" data-i18n="favorites">Избранное</button>
             </div>
 
+            <!-- Текущие заказы -->
             <section id="orders" class="tab active">
-                <div id="orders-list" class="list"></div>
-                <div id="no-orders" class="empty">Нет текущих заказов.</div>
+                <h2 data-i18n="currentOrders">Текущие заказы</h2>
+                <div class="list">
+                    <div class="order-card">
+                        <div class="order-info">
+                            <strong>#ORD001 - <span data-i18n="dish.1.name">ПАД ТАЙ С КРЕВЕТКАМИ</span></strong>
+                            <p class="order-meta">Статус: <span style="color: #FFC107;">⏳ В пути</span></p>
+                            <p class="order-meta">Сумма: 2 930 ₸ × 1 = 2 930 ₸</p>
+                            <p class="order-meta">Ориентировочное время доставки: 25-30 мин</p>
+                            <div class="progress">
+                                <i style="width: 60%;"></i>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-track" data-i18n="track">Отследить</button>
+                            <button class="btn-cancel" data-i18n="cancel_order">Отменить</button>
+                        </div>
+                    </div>
+                </div>
             </section>
 
+            <!-- История заказов -->
             <section id="history" class="tab">
-                <div id="history-list" class="list"></div>
-                <div id="no-history" class="empty">История заказов пуста.</div>
+                <h2 data-i18n="orderHistory">История заказов</h2>
+                <div class="list">
+                    <div class="order-card">
+                        <div class="order-info">
+                            <strong>#ORD0045 - <span data-i18n="dish.3.name">TOM YAM С КРЕВЕТКАМИ</span></strong>
+                            <p class="order-meta">Статус: <span style="color: #4CAF50;">✓ Доставлен</span></p>
+                            <p class="order-meta">Дата: 5 декабря 2025</p>
+                            <p class="order-meta">Сумма: 3 480 ₸ × 2 = 6 960 ₸</p>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-reorder" data-i18n="reorder">Повторить заказ</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-info">
+                            <strong>#ORD0044 - <span data-i18n="dish.6.name">TOM KHA С КУРИЦЕЙ</span></strong>
+                            <p class="order-meta">Статус: <span style="color: #4CAF50;">✓ Доставлен</span></p>
+                            <p class="order-meta">Дата: 3 декабря 2025</p>
+                            <p class="order-meta">Сумма: 3 460 ₸ × 1 = 3 460 ₸</p>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-reorder" data-i18n="reorder">Повторить заказ</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-info">
+                            <strong>#ORD0043 - <span data-i18n="dish.2.name">ЖАРЕНЫЙ ЛАГМАН С ГОВЯДИНОЙ</span></strong>
+                            <p class="order-meta">Статус: <span style="color: #4CAF50;">✓ Доставлен</span></p>
+                            <p class="order-meta">Дата: 1 декабря 2025</p>
+                            <p class="order-meta">Сумма: 2 930 ₸ × 1 = 2 930 ₸</p>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-reorder">Повторить заказ</button>
+                        </div>
+                    </div>
+                </div>
             </section>
 
+            <!-- Избранное -->
             <section id="favorites" class="tab">
-                <div id="favorites-list" class="list"></div>
-                <div id="no-favorites" class="empty">Список избранного пуст.</div>
+                <h2 data-i18n="favorites">Избранные блюда</h2>
+                <div class="list">
+                    <div class="fav-card">
+                        <div class="fav-info">
+                            <strong><span data-i18n="dish.1.name">ПАД ТАЙ С КРЕВЕТКАМИ</span></strong>
+                            <p><span data-i18n="dish.1.desc">Жареная рисовая лапша. В составе: креветки, соя проросшая, тофу, яйцо, жаренный арахис и специи.</span></p>
+                            <p class="fav-price"><strong>2 930 ₸</strong></p>
+                        </div>
+                        <div class="fav-actions">
+                            <button class="btn-add-cart" data-i18n="addToCart">В корзину</button>
+                            <button class="btn-remove-fav" title="Удалить" data-i18n="remove">✕</button>
+                        </div>
+                    </div>
+
+                    <div class="fav-card">
+                        <div class="fav-info">
+                            <strong><span data-i18n="dish.4.name">TOM YAM С МОРЕПРОДУКТАМИ</span></strong>
+                            <p><span data-i18n="dish.4.desc">Знаменитый тайский суп с кальмаром, осьминогом, королевской мидией и креветками.</span></p>
+                            <p class="fav-price"><strong>3 740 ₸</strong></p>
+                        </div>
+                        <div class="fav-actions">
+                            <button class="btn-add-cart">В корзину</button>
+                            <button class="btn-remove-fav">✕</button>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
 
+  <script src="translations.js" defer></script>
   <script src="header.js" defer></script>
-  <script src="account.js"></script>
+  <!-- Простая логика для переключения табов -->
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Убрать активный класс со всех кнопок и табов
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        
+        // Добавить активный класс на текущий
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>

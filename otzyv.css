@@ -8,8 +8,10 @@
 body{
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	margin:0;
-	background:var(--bg);
+	background: #D6C638;
+	background: linear-gradient(180deg, rgba(214, 198, 56, 0.53) 29%, rgba(255, 211, 51, 0.12) 60%, rgba(119, 233, 140, 0.56) 97%);
 	color:#222;
+	min-height: 100vh;
 }
 .site-header{
 	background: linear-gradient(90deg,#f7f0ea,#fff);

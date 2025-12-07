@@ -36,23 +36,6 @@
           dropdown.setAttribute('aria-hidden','true');
         }
       });
-
-      // logout simulation
-      const logout = nav.querySelector('#logoutBtn');
-      if(logout){
-        logout.addEventListener('click', (ev)=>{
-          ev.preventDefault();
-          // clear demo auth token and orders (optional)
-          localStorage.removeItem('tf_user');
-          // show simple alert and close dropdown
-          alert('Вы вышли (демо).');
-          nav.classList.remove('open');
-          link.setAttribute('aria-expanded','false');
-          dropdown.setAttribute('aria-hidden','true');
-          // redirect to homepage
-          window.location.href = 'index.html';
-        });
-      }
     });
   });
 })();

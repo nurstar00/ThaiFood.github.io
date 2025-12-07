@@ -83,9 +83,24 @@ body{
 @media (max-width:900px){
     .contact-card{flex-direction:column;padding:28px}
     .contact-right{flex:auto;width:100%}
+    .form-card{width:100%;max-width:100%}
+}
+
+@media (max-width:600px){
+    .contact-card{padding:16px;gap:20px}
+    .contact-left{max-width:100%;padding:4px 8px}
+    .contact-left h1{font-size:20px}
+    .contact-left .muted{font-size:11px}
+    .contact-list .item{font-size:13px}
+    .form-row input,.form-row select,.form-row textarea{padding:10px;min-height:44px;font-size:16px}
+    .form-row.two-col{flex-direction:column}
+    .form-row.two-col .col{width:100%}
+    .card-wrap{padding:12px}
+    .primary{padding:10px 16px;min-height:44px;font-size:14px}
 }
 
 @media (max-width:480px){
-    .contact-left h1{font-size:22px}
-    .card-wrap{padding:18px}
+    .contact-left h1{font-size:18px;margin:8px 0}
+    .card-wrap{padding:8px}
+    .contact-card{padding:12px}
 }

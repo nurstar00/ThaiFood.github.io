@@ -66,7 +66,7 @@
 	function renderReviews() {
 		const reviews = getReviews().slice().reverse();
 		if (reviews.length === 0) {
-			reviewsContainer.innerHTML = '<p class="no-reviews">Пока нет отзывов. Будьте первым!</p>';
+			reviewsContainer.innerHTML = `<p class="no-reviews">${t('reviews_no_reviews')}</p>`;
 			return;
 		}
 
@@ -91,7 +91,7 @@
 			footer.className = 'review-footer';
 			const date = new Date(r.created);
 			footer.innerHTML = `<time>${date.toLocaleString()}</time>
-				<button class="delete-btn" data-id="${r.id}">Удалить</button>`;
+					<button class="delete-btn" data-id="${r.id}">${t('remove')}</button>`;
 
 			card.appendChild(header);
 			card.appendChild(body);
@@ -156,7 +156,7 @@
 		const message = form.message.value.trim();
 
 		if (!name || !rating || !message) {
-			alert('Пожалуйста, заполните все поля.');
+			alert(t('reviews_fill_all'));
 			return;
 		}
 
@@ -182,18 +182,18 @@
 	});
 
 	
-	reviewsContainer.addEventListener('click', function (e) {
-		const btn = e.target.closest('.delete-btn');
-		if (!btn) return;
-		const id = btn.getAttribute('data-id');
-		if (confirm('Удалить этот отзыв?')) {
-			deleteReview(id);
-		}
-	});
+		reviewsContainer.addEventListener('click', function (e) {
+			const btn = e.target.closest('.delete-btn');
+			if (!btn) return;
+			const id = btn.getAttribute('data-id');
+			if (confirm(t('reviews_confirm_delete'))) {
+				deleteReview(id);
+			}
+		});
 
-	clearBtn.addEventListener('click', function () {
-		if (confirm('Очистить форму?')) form.reset();
-	});
+		clearBtn.addEventListener('click', function () {
+			if (confirm(t('reviews_confirm_clear'))) form.reset();
+		});
 
 	
 	let cardObserver = null;

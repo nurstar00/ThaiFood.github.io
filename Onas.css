@@ -3,7 +3,19 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
+    color: #000000;    .location-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff6b6b;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 10px 0;
+    }
+    
+    .location-btn:hover {
+        background-color: #ff5252;
+    }
     cursor: url('cursor.png'),auto;
 }
 .wrapper {
@@ -15,6 +27,15 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+
+main, section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 40px;
+    margin: 30px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 header {
     display: flex;
@@ -30,8 +51,7 @@ header .logo {
     color: #a70101;
 }
 header nav  {
-    float: right;
-    width: 50%; /* навигация занимает 50% ширины  */
+    width: 50%; 
   display: inline-block;}
 
 header nav ul li a {
@@ -40,16 +60,16 @@ header nav ul li a {
 
 header nav ul li:not(.active):not(.btn) a:hover {
     border-bottom: 3px solid #a7010193;
-} /* мышка апарган кезде под текст линия */
+} 
 
 
-header nav ul li.btn a { /* кноpka regis */
+header nav ul li.btn a { 
     background: hsla(71, 40%, 66%, 0.627);
     padding: 7px 11px; 
     border-radius: 5px;
-    transition: all 500ms ease; /* анимация плавно*/
+    transition: all 500ms ease; 
 }
-header nav ul li.btn a:hover {/* кноpka regis мышка апарган кезде */
+header nav ul li.btn a:hover {
     background: #ebeeb4;
 }
 header nav ul {

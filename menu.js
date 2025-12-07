@@ -1,7 +1,7 @@
 // = фильтр =
 const menuItems = [
     { id: 1, name: 'ПАД ТАЙ С КРЕВЕТКАМИ', price: 2930, description: 'Жареная рисовая лапша. В составе: креветки, соя проросшая, тофу, яйцо, жаренный арахис и специи.', image: 'menu/Пад Тай с креветками.jpg', category: 'Креветки' },
-    { id: 2, name: 'ЖАРЕНЫЙ ЛАГМАН С ГОВЯДИНОЙ', price: 2930, description: 'Острое блюдо из лагмана с говядиной', image: 'menu/говядина в зеленом карри 1.jpg', category: 'Говядина' },
+    { id: 2, name: 'ЖАРЕНЫЙ ЛАГМАН С ГОВЯДИНОЙ', price: 2930, description: 'Острое блюдо из лагмана с говядиной', image: 'menu/Жаренный лагман с Говядиной.jpg', category: 'Говядина' },
     { id: 3, name: 'TOM YAM С КРЕВЕТКАМИ', price: 3480, description: 'Знаменитый тайский суп на основе куриного бульона с добавлением острой пасты TomYam. Состав: королевские креветки, шампиньоны, лемонграсс, галангал, каффиралайм, кинза, молоко. Подается с рисом.', image: 'menu/Том Ям с Креветками.jpg', category: 'Креветки' },
     { id: 4, name: 'TOM YAM С МОРЕПРОДУКТАМИ', price: 3740, description: 'Знаменитый тайский суп с кальмаром, осьминогом, королевской мидией и креветками.', image: 'menu/Том Ям с Морепродуктами.jpg', category: 'Морепродукты' },
     { id: 5, name: 'TOM KHA С КРЕВЕТКАМИ', price: 3680, description: 'Нежный суп на курином бульоне и кокосовом молоке с креветками и тайскими травами.', image: 'menu/Том Кна С Креветками.jpeg', category: 'Креветки' },
@@ -12,6 +12,15 @@ const menuItems = [
 
 
 const categories = ['Все', 'Креветки', 'Морепродукты', 'Говядина', 'Курица'];
+
+// Мэпинг русских названий категорий на ключи переводов
+const categoryLabelKey = {
+    'Все': 'category.all',
+    'Креветки': 'category.shrimp',
+    'Морепродукты': 'category.seafood',
+    'Говядина': 'category.beef',
+    'Курица': 'category.chicken'
+};
 let activeCategory = 'Все';
 
 
@@ -101,7 +110,8 @@ function renderFilterButtons() {
         if (category === activeCategory) {
             btn.classList.add('active');
         }
-        btn.textContent = category;
+        // Отображаем перевод метки категории, если он есть
+        btn.textContent = categoryLabelKey[category] ? t(categoryLabelKey[category]) : category;
         btn.addEventListener('click', () => filterByCategory(category));
         filterButtons.appendChild(btn);
     });
@@ -124,7 +134,7 @@ function renderMenu() {
         : menuItems.filter(item => matchesCategory(item, activeCategory));
     
     if (filteredItems.length === 0) {
-        menuGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #999;">Блюд не найдено</p>';
+        menuGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #999;">${t('no_items_found')}</p>`;
         return;
     }
     
@@ -132,13 +142,13 @@ function renderMenu() {
         const itemEl = document.createElement('div');
         itemEl.className = 'menu-item';
         itemEl.innerHTML = `
-            <div class="item-image"><img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;"></div>
+            <div class="item-image"><img src="${item.image}" loading="lazy" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;"></div>
             <div class="item-content">
-                <div class="item-name">${item.name}</div>
-                <div class="item-description">${item.description}</div>
+                <div class="item-name">${t('dish.' + item.id + '.name')}</div>
+                <div class="item-description">${t('dish.' + item.id + '.desc')}</div>
                 <div class="item-footer">
                     <div class="item-price">${item.price} ₸</div>
-                    <button class="btn-add" data-id="${item.id}">+ Добавить</button>
+                    <button class="btn-add" data-id="${item.id}">${t('add_button')}</button>
                 </div>
             </div>
         `;
@@ -183,7 +193,8 @@ function addToCart(itemId) {
 
     updateCartUI();
     saveCartToStorage();
-    console.log(`✓ "${item.name}" добавлено в корзину`);
+    showNotification(`✓ "${t('dish.' + item.id + '.name')}" ${t('added_to_cart')}`);
+    console.log(`✓ "${t('dish.' + item.id + '.name')}" ${t('added_to_cart')}`);
 }
 
 // Удалить из корзины
@@ -191,7 +202,45 @@ function removeFromCart(itemId) {
     cart = cart.filter(item => item.id !== itemId);
     updateCartUI();
     saveCartToStorage();
-    console.log(`✓ Товар удален из корзины`);
+    showNotification(`✓ ${t('item_removed')}`);
+    console.log(`✓ ${t('item_removed')}`);
+}
+
+// Показать уведомление
+function showNotification(message) {
+    let notification = document.getElementById('notification');
+    
+    // Если уведомления еще нет - создаем
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.id = 'notification';
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        `;
+        document.body.appendChild(notification);
+    }
+    
+    notification.textContent = message;
+    notification.style.display = 'block';
+    
+    // Автоматически скрыть через 3 секунды
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease-out';
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 300);
+    }, 2700);
 }
 
 // Изменить количество
@@ -216,7 +265,7 @@ function updateCartUI() {
 
     // Обновить список товаров в модале
     if (cart.length === 0) {
-        cartItems.innerHTML = '<div class="empty-cart">Корзина пуста</div>';
+        cartItems.innerHTML = `<div class="empty-cart">${t('empty_cart')}</div>`;
         checkoutForm.classList.remove('active');
         submitOrderBtn.disabled = true;
     } else {
@@ -226,7 +275,7 @@ function updateCartUI() {
             cartItemEl.className = 'cart-item';
             cartItemEl.innerHTML = `
                 <div class="cart-item-info">
-                    <div class="cart-item-name">${item.name}</div>
+                    <div class="cart-item-name">${t('dish.' + item.id + '.name')}</div>
                     <div class="cart-item-price">${item.price} ₸ × ${item.quantity} = ${item.price * item.quantity} ₸</div>
                 </div>
                 <div class="cart-item-quantity">
@@ -234,7 +283,7 @@ function updateCartUI() {
                     <span class="qty-value">${item.quantity}</span>
                     <button class="qty-btn" data-id="${item.id}" data-action="increase">+</button>
                 </div>
-                <button class="btn-remove" data-id="${item.id}">Удалить</button>
+                <button class="btn-remove" data-id="${item.id}">${t('remove')}</button>
             `;
             cartItems.appendChild(cartItemEl);
 
@@ -280,21 +329,21 @@ function submitOrder(e) {
     const comment = clientComment.value.trim();
 
     if (!name || !phone || !address) {
-        alert('Пожалуйста, заполните все обязательные поля!');
+        alert(t('fill_required'));
         return;
     }
 
     // Формирование деталей заказа
-    const orderItems = cart.map(item => `${item.name} × ${item.quantity}`).join(', ');
+    const orderItems = cart.map(item => `${t('dish.' + item.id + '.name')} × ${item.quantity}`).join(', ');
     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
     const details = `
-        <strong>Имя:</strong> ${name}<br>
-        <strong>Телефон:</strong> ${phone}<br>
-        <strong>Адрес:</strong> ${address}<br>
-        <strong>Товары:</strong> ${orderItems}<br>
-        <strong>Сумма:</strong> ${totalPrice} ₸
-        ${comment ? `<br><strong>Комментарий:</strong> ${comment}` : ''}
+        <strong>${t('fullName')}</strong> ${name}<br>
+        <strong>${t('phone')}</strong> ${phone}<br>
+        <strong>${t('address')}</strong> ${address}<br>
+        <strong>${t('items')}</strong> ${orderItems}<br>
+        <strong>${t('sum')}</strong> ${totalPrice} ₸
+        ${comment ? `<br><strong>${t('comment')}</strong> ${comment}` : ''}
     `;
 
     orderDetails.innerHTML = details;
