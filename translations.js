@@ -141,12 +141,19 @@ const translations = {
 
     // Корзина
     yourCart: 'Ваша корзина',
-    total: 'Итого:',
+    total: 'Всего:',
     checkout: 'Оформить заказ',
+    checkoutTitle: 'Оформление заказа',
+    clientName: 'Ваше имя',
+    clientPhone: 'Номер телефона',
+    clientAddress: 'Адрес доставки',
+    clientComment: 'Комментарий (опционально)',
+    submitOrder: 'Оформить заказ',
     cancel: 'Отмена',
     cancel_order: 'Отменить',
     track: 'Отследить',
     reorder: 'Повторить заказ',
+    successTitle: 'Заказ успешно принят!',
     successMsg: 'Спасибо за заказ!',
     continueShop: 'Продолжить покупки'
   },
@@ -209,7 +216,7 @@ const translations = {
     // О нас
     aboutUs: 'Біз туралы',
     ourLocations: 'Біздің орындарымыз',
-    clickMap: 'Маршрутты ашу үшін THAIFOOD6 бос орынына басыңыз немесе төменде сілтемені пайдаланыңыз:',
+    clickMap: 'Маршрутты ашу үшін картадағы THAIFOOD6  басыңыз немесе төменде сілтемені пайдаланыңыз:',
     location: 'Орналасқандығы:',
     openOn2GIS: '2GIS ішінде ашу (Алматы)',
     aboutThai: 'Тайланд тағамы туралы',
@@ -290,14 +297,21 @@ const translations = {
     reviews_latest: 'Соңғы пікірлер',
 
     // Корзина
-    yourCart: 'Сізің себетіңіз',
+    yourCart: 'Сіздің себетініз',
     total: 'Барлығы:',
     checkout: 'Тапсырысты ресімдеу',
+    checkoutTitle: 'Тапсырыс ресімдеу',
+    clientName: 'Сіздің атыңыз',
+    clientPhone: 'Телефон нөмері',
+    clientAddress: 'Жеткізу мекенжайы',
+    clientComment: 'Пікір (міндетті емес)',
+    submitOrder: 'Тапсырысты ресімдеу',
     cancel: 'Бас тарту',
     cancel_order: 'Тапсырысты болдырмау',
     track: 'Бақылау',
     reorder: 'Тапсырысты қайталау',
-    successMsg: 'Сурет үшін рахмет!',
+    successTitle: 'Тапсырыс сәтті қабылданды!',
+    successMsg: 'Тапсырыс үшін рахмет!',
     continueShop: 'Сатып алуды жалғастыру'
   }
 };
