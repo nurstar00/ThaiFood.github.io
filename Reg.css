@@ -39,11 +39,170 @@ body{
     color:#0b1220;
 }
 .container{max-width:1200px;margin:0 auto;padding: 20px;}
-.site-header{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
-.site-header .logo{font-weight:700;font-size:22px;color:#a70101 }
-.site-header nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0}
-.site-header nav ul li a{color:#685423;text-decoration:none}
-.site-header nav ul li.btn a{background:hsla(71,40%,66%,0.63);padding:7px 11px;border-radius:6px}
+.site-header{
+	background: linear-gradient(90deg, #f7f0ea, #fff);
+	position: relative;
+	overflow: hidden;
+	padding: 24px 16px;
+	border-bottom: 1px solid #eee;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+.site-header .logo{
+	font-weight: 700;
+	font-size: 22px;
+	color: #a70101;
+	flex-shrink: 0;
+}
+.site-header nav{
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+}
+.site-header nav ul{
+	display: flex;
+	gap: 18px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	align-items: center;
+}
+.site-header nav ul li a{
+	color: #685423;
+	text-decoration: none;
+	padding: 6px 4px;
+	transition: border-bottom 0.3s ease;
+}
+.site-header nav ul li:not(.active):not(.btn) a:hover{
+	border-bottom: 3px solid #a7010193;
+}
+.site-header nav ul li.btn a{
+	background: hsla(71, 40%, 66%, 0.63);
+	padding: 7px 11px;
+	border-radius: 6px;
+	transition: all 500ms ease;
+}
+.site-header nav ul li.btn a:hover{
+	background: #ebeeb4;
+}
+.site-header .cart-icon-nav a{
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: #333;
+	text-decoration: none;
+	position: relative;
+}
+.cart-count{
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	background: #a70101;
+	color: #fff;
+	border-radius: 50%;
+	width: 18px;
+	height: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 11px;
+	font-weight: 600;
+}
+.account-nav{
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-left: auto;
+	flex-shrink: 0;
+}
+.account-nav .account-link{
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: #685423;
+	text-decoration: none;
+	padding: 8px 12px;
+	transition: background 0.3s ease;
+}
+.account-nav .account-link:hover{
+	background: #f0f0f0;
+	border-radius: 5px;
+}
+.language-switcher{
+	display: flex;
+	gap: 8px;
+	margin-left: 15px;
+}
+.lang-btn{
+	padding: 6px 12px;
+	border: 1px solid #ddd;
+	background: #fff;
+	color: #685423;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 12px;
+	font-weight: 600;
+	transition: all 0.3s ease;
+}
+.lang-btn:hover{
+	background: #f0f0f0;
+	border-color: #a70101;
+}
+.lang-btn.active{
+	background: #a70101;
+	color: #fff;
+	border-color: #a70101;
+}
+.nav-toggle{
+	display: none;
+	background: transparent;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+	flex-direction: column;
+	gap: 4px;
+}
+.nav-toggle .bar{
+	display: block;
+	width: 22px;
+	height: 2px;
+	background: #685423;
+	border-radius: 2px;
+}
+@media (max-width: 800px) {
+	.nav-toggle{
+		display: flex;
+	}
+	.site-header .main-nav{
+		display: none;
+	}
+	.site-header .main-nav.open{
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: calc(100% + 8px);
+		background: #fff;
+		padding: 12px 16px;
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+		border-radius: 8px;
+		z-index: 999;
+	}
+	.site-header .main-nav.open ul{
+		flex-direction: column;
+		gap: 8px;
+	}
+	.site-header .main-nav.open ul li a{
+		display: block;
+		padding: 10px 0;
+		min-height: 44px;
+		display: flex;
+		align-items: center;
+	}
+}
 /*Форма*/
 .card-wrap{padding:30px}
 .contact-card{display:flex;gap:40px;background:rgba(255,255,255,0.85);border-radius:18px;padding:48px;align-items:stretch;box-shadow:0 10px 30px rgba(11,18,32,0.08)}

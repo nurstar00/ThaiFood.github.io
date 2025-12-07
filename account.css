@@ -20,3 +20,233 @@ body { font-family: Arial, Helvetica, sans-serif; margin: 0; color: #222; }
 .empty { color:#666; padding:12px }
 
 @media (max-width:600px){ .order-info { max-width:60% } }
+}
+
+@media (max-width: 768px) {
+  .account-container {
+    padding: 20px;
+    margin: 12px 8px;
+  }
+
+  .order-card, .fav-card {
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .order-info, .fav-info {
+    width: 100%;
+  }
+
+  .order-actions, .fav-actions {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .order-actions button, .fav-actions button {
+    flex: 1;
+    min-height: 40px;
+    min-width: 70px;
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .tabs {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 10px 14px;
+    font-size: 12px;
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .account-container {
+    padding: 12px;
+    margin: 8px 4px;
+  }
+
+  .account-container h1 {
+    font-size: 18px;
+  }
+
+  .account-container h2 {
+    font-size: 14px;
+  }
+
+  .order-card, .fav-card {
+    padding: 12px;
+  }
+
+  .order-meta, .fav-info p {
+    font-size: 12px;
+  }
+
+  .order-actions button, .fav-actions button {
+    font-size: 10px;
+    padding: 5px 8px;
+    min-height: 36px;
+  }
+}
+
+.order-card:hover, .fav-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: #a70101;
+}
+
+.order-info, .fav-info { 
+  flex: 1;
+}
+
+.order-info strong, .fav-info strong {
+  color: #4d0303;
+  font-size: 15px;
+}
+
+.order-meta { 
+  color: #666; 
+  font-size: 13px;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.fav-price {
+  color: #a70101;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.fav-info p {
+  font-size: 13px;
+  color: #666;
+  margin: 8px 0;
+}
+
+/* Кнопки */
+.order-actions, .fav-actions { 
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-left: 15px;
+}
+
+.order-actions button, .fav-actions button { 
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #685423;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.order-actions button:hover, .fav-actions button:hover {
+  background: #a70101;
+  color: white;
+  border-color: #a70101;
+}
+
+.btn-reorder, .btn-add-cart {
+  background: #a70101;
+  color: white;
+  border-color: #a70101;
+}
+
+.btn-reorder:hover, .btn-add-cart:hover {
+  background: #8a0000;
+  border-color: #8a0000;
+}
+
+.btn-remove-fav {
+  background: #f5f5f5;
+  color: #999;
+  min-width: 35px;
+}
+
+.btn-remove-fav:hover {
+  background: #ff6b6b;
+  color: white;
+  border-color: #ff6b6b;
+}
+
+/* Прогресс бар */
+.progress { 
+  height: 6px; 
+  background: #e0e0e0; 
+  border-radius: 6px; 
+  overflow: hidden; 
+  margin-top: 12px;
+}
+
+.progress > i { 
+  display: block; 
+  height: 100%; 
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+  animation: progress 2s ease-in-out infinite;
+}
+
+@keyframes progress {
+  0%, 100% { width: 60%; }
+  50% { width: 70%; }
+}
+
+/* Пусто */
+.empty { 
+  color: #999; 
+  padding: 30px 12px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .account-container {
+    padding: 20px;
+  }
+
+  .order-card, .fav-card {
+    flex-direction: column;
+  }
+
+  .order-actions, .fav-actions {
+    justify-content: flex-start;
+    margin-left: 0;
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width:600px) { 
+  .account-container {
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  .order-info { 
+    max-width: 100%;
+  }
+
+  .order-card, .fav-card {
+    padding: 12px;
+  }
+
+  .profile-info p {
+    font-size: 13px;
+  }
+}
